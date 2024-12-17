@@ -49,16 +49,19 @@ export default function App({}) {
   const otherUserId = useRef(null);
 
 //  ngrok http 3500
-  const socket = SocketIOClient('https://0b04-2804-29b8-51aa-62e-551f-6a5d-789f-3227.ngrok-free.app', {
-    transports: ['websocket'],
-    query: {
-      callerId,
-    },
-  });
+  const socket = SocketIOClient('192.168.0.104',{}); 
+    
 
   const peerConnection = useRef(
     new RTCPeerConnection({
-      iceServers: [],
+      iceServers: [
+        {
+          urls: 'stun:stun.l.google.com:19302'
+        },
+        {
+          urls: 'stun:stun1.l.google.com:19302'
+        }
+      ]
     }),
   );
 
@@ -66,16 +69,14 @@ export default function App({}) {
 
   useEffect(() => {
     const fetchTurnServerCredentials = async () => {
-      try {
-        const response = await fetch("https://elidev.metered.live/api/v1/turn/credentials?apiKey=2c55a049edebd789220c33e4c9edf0b2161f");
-        const iceServers = await response.json();
-        console.log("Credenciais do servidor TURN obtidas com sucesso:", iceServers);
-        return iceServers;
-      } catch (error) {
-        console.error("Erro ao obter credenciais do servidor TURN:", error);
-        throw error;
-      }
+      return [{
+        urls: 'stun:stun.l.google.com:19302'
+      },
+      {
+        urls: 'stun:stun1.l.google.com:19302'
+      }];
     };
+    
 
     const initializePeerConnection = async () => {
       try {
