@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "446312937383",
+    "project_id": "webrtc-voip-2c743",
+    "storage_bucket": "webrtc-voip-2c743.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446312937383:android:8197d9778ec3789df56882",
+        "android_client_info": {
+          "package_name": "com.webrtcexample"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5tX_PQnBFhD0hHJK1ycGcTn2E3N9W2V0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
